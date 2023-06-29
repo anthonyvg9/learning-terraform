@@ -21,6 +21,7 @@ data "aws_vpc" "default" {
 resource "aws_instance" "blog" {
   ami                    = data.aws_ami.app_ami.id
   instance_type          = var.instance_type
+  subnet_id              = "subnet-0ea7bf14d559e169d"
   vpc_security_group_ids = [module.blog_sg.security_group_id]
 
   tags = {
